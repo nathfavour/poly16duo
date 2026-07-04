@@ -29,10 +29,9 @@ pub fn build(b: *std.Build) void {
         .target = wasm_target,
         .optimize = .ReleaseSmall,
     });
-    const wasm = b.addLibrary(.{
+    const wasm = b.addExecutable(.{
         .name = "poly16duo",
         .root_module = wasm_mod,
-        .linkage = .dynamic,
     });
     wasm.rdynamic = true;
     wasm.entry = .disabled;
